@@ -55,10 +55,9 @@ public class GestaoOrdemServicoService {
 	
 	
 	public Comentario atualizarComentario(Long ordemServicoId, String descricao, Long comentarioId) {
-		OrdemServico ordemServico = buscar(ordemServicoId);
 		
 		//depois testar usando uma classe que pussui as duas chaves (Embeddable)
-		Comentario comentario = buscarComentario(ordemServico.getId(), comentarioId);
+		Comentario comentario = buscarComentario(comentarioId, ordemServicoId);
 		comentario.setDescricao(descricao);
 		
 		return comentarioRepository.save(comentario);
