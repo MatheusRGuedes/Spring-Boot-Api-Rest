@@ -1,1 +1,0 @@
-alter table comentario rename column id_ordem_servico to id_Ordem_servico

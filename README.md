@@ -17,4 +17,12 @@ Prejeto Spring Boot para monitorar ordens de serviço.
 ## Funcionalidades atuais disponíveis
 - Listar, buscar, criar, atualizar e deletar um cliente;
 - Listar, buscar, criar e atualizar uma ordem de serviço;
-- Listar, criar e atualizar um comentário.
+- Listar, criar, atualizar e deletar um comentário.
+
+### Observação 
+- As queries para criação das tabelas se encontram na pasta SQL. Você pode usar o Flyway(dependência sem encontra no pom.xml), que é uma ferramenta de controle de versão para fazer a migração das tabelas criadas, ou qualquer alteração feita no banco, para o banco MySql ou o banco de sua preferência.
+
+- Para isso, basta criar o seguinte diretório na pasta <code>src/main/resources</code>:<br/>
+<code>db/migration</code><br/> Em seguida, criar cada arquivo de versão, seguindo o padrão <code>V00n__descrição</code>, onde o n é o número da versão. [Detalhes aqui] - (https://flywaydb.org/documentation/migrations)
+
+- Outra forma é de criação das tabelas automáticamente, que já está configurado no arquivo <code>application.properties</code>, não precisando se preocupar com a outra forma acima.

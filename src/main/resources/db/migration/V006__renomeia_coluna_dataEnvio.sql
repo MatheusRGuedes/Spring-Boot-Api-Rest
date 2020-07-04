@@ -1,1 +1,0 @@
-alter table comentario rename column dataEnvio to data_envio

@@ -1,0 +1,44 @@
+
+/* ------TABELA CLIENTE------- */
+
+create table cliente (
+    id bigint not null auto_increment,
+    nome varchar(60) not null,
+    email varchar(255) not null,
+    fone varchar(20) not null,
+    
+    primary key(id)
+);
+
+
+/* -----TABELA ORDEM DE SERVIÇO --------*/
+
+create table ordem_servico (
+    id bigint not null auto_increment,
+    id_Cliente bigint not null,
+    descricao text not null,
+    preco decimal(10,2) not null,
+    status varchar(20) not null,
+    data_abertura datetime not null,
+    data_finalizacao datetime,
+    
+    primary key(id)
+);
+
+alter table ordem_servico add constraint fk_ordem_servico_cliente
+foreign key (id_cliente) references cliente (id)
+
+
+/*-------- TABELA COMENTARIO ---------*/
+
+create table comentario (
+    id bigint not null auto_increment,
+    id_Ordem_servico bigint not null,
+    descricao text not null,
+    data_envio datetime not null,
+    
+    primary key (id)
+);
+
+alter table comentario add constraint fk_comentario_ordem_servico
+foreign key (id_ordem_servico) references ordem_servico (id)
