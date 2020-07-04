@@ -1,6 +1,7 @@
 package com.algaworks.osworks.domain.service;
 
 import java.time.OffsetDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,7 @@ public class GestaoOrdemServicoService {
 		ordemServicoRepository.save(ordemServico);
 	}
 	
+	
 	public Comentario atualizarComentario(Long ordemServicoId, String descricao, Long comentarioId) {
 		OrdemServico ordemServico = buscar(ordemServicoId);
 		
@@ -61,6 +63,14 @@ public class GestaoOrdemServicoService {
 		
 		return comentarioRepository.save(comentario);
 	}
+	
+	
+	public void deletarComentario(Long ordemServicoId, Long comentarioId) {
+		Comentario comentario = buscarComentario(comentarioId, ordemServicoId);
+		
+		comentarioRepository.deleteById(comentario.getId());
+	}
+	
 	
 	public Comentario adicionarComentario(Long ordemServicoId, String descricao) {
 		OrdemServico ordemServico = buscar(ordemServicoId);
@@ -79,11 +89,11 @@ public class GestaoOrdemServicoService {
 				.orElseThrow(() -> new EntidadeNaoEncontradaException("Ordem de serviço não encontrada."));
 	}
 	
-	public Comentario buscarComentario(Long ordemServicoId, Long comentarioId) {
-		Comentario comentario = comentarioRepository.findByOrdemServicoId(ordemServicoId).orElse(null);
+	public Comentario buscarComentario(Long comentarioId, Long ordemServicoId) {
+		Comentario comentario = comentarioRepository.buscarComentarioDeOrdemServico(comentarioId, ordemServicoId);
 		
-		if ((comentario == null) || (comentario.getId() != comentarioId)) {
-			throw new EntidadeNaoEncontradaException("Comentário não encontrado.");
+		if (comentario == null) {
+			throw new EntidadeNaoEncontradaException("Ordem de serviço ou comentário não encontrado.");
 		}
 		
 		return comentario;

@@ -8,6 +8,8 @@ import javax.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +39,8 @@ public class ComentarioController {
 	
 	@Autowired
 	private GestaoOrdemServicoService gestaoOrdemServicoService;
+	
+	
 
 	
 	@GetMapping
@@ -73,6 +77,15 @@ public class ComentarioController {
 		Comentario comentario = gestaoOrdemServicoService.atualizarComentario(ordemServicoId, comentarioInput.getDescricao(), comentarioId);
 		
 		return toModel( comentario );
+	}
+	
+	@DeleteMapping("/{comentarioId}")
+	public ResponseEntity<Void> deletar(@PathVariable Long ordemServicoId, 
+			@PathVariable Long comentarioId) {
+		
+		gestaoOrdemServicoService.deletarComentario(ordemServicoId, comentarioId);
+		
+		return ResponseEntity.noContent().build();
 	}
 	
 	
