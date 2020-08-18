@@ -1,7 +1,6 @@
 package com.algaworks.osworks.domain.service;
 
 import java.time.OffsetDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +26,7 @@ public class GestaoOrdemServicoService {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
+
 	
 	public OrdemServico criar(OrdemServico ordemServico) {
 	

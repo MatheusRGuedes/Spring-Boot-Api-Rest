@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 /*
  * Classe de domínio/negócio, que corresponde a uma entidade.
@@ -93,6 +90,4 @@ public class Cliente {
 			return false;
 		return true;
 	}
-	
-	
 }

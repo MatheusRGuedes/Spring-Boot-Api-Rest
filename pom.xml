@@ -13,7 +13,6 @@
 	<groupId>com.algaworks.osworks</groupId>
 	<artifactId>osworks-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
 	<name>osworks-api</name>
 	<description>API do OSWorks</description>
 
@@ -60,7 +59,8 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!-- <dependency>
+		<!-- 
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+			<scope>runtime</scope>		
 		</dependency>
 		
 		<dependency>
