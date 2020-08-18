@@ -18,8 +18,10 @@ This application is packaged as a jar which has tomcat 9.0.36 embedded by Spring
 <code>java -jar target/osworks-api-0.0.1-SNAPSHOT.jar</code>
 
 <p>Once the application runs you will see something like this:</p>
+ `
  2020-08-17 21:46:31.157  INFO 824 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
  2020-08-17 21:46:34.690  INFO 824 --- [           main] c.a.osworks.OsworksApiApplication        : Started OsworksApiApplication in 13.414 seconds (JVM running for 14.816)
+ `
 
 ## DataBase 
 - It uses an in-memory database (H2) to store the data. You can also do with a relational database like MySql or other of your preference by changing the connection properties on <code>application.properties</code>.
