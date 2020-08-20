@@ -10,7 +10,7 @@ Spring Boot project for manage service orders.
 - H2 Database.
 
 ## How to run
-This application is packaged as a jar which has tomcat 9.0.36 embedded by Spring boot starter we of Spring MVC. No Tomcat or any servlet container installation is necessary. You can run it using the <code>java -jar</code> command.
+This application is packaged as a jar which has Tomcat 9.0.36 embedded by Spring MVC of Spring Boot Starter. No Tomcat or any servlet container installation is necessary. You can run it using the <code>java -jar</code> command.
 - Clone this ropository;
 - Make sure you have installed JDK 12;
 - You can build the project by running <code>mvn clean package</code>;
@@ -30,7 +30,7 @@ It uses an in-memory database (H2) to store the data. You can also do with a rel
 
 ### How to view your H2 in-memory database
 <p>
-	To view and to query the database you can access the link http://localhost:8090/h2 that will direct you to the h2 console. Default username is 'sa' with a blank password.
+	To view and to query the database you can access the link <a href="http://localhost:8080/h2">http://localhost:8080/h2</a> that will direct you to the h2 console. Default username is 'sa' with a blank password.
 </p>
 <p>
 	The queries to create the tables are at SQL folder. You can use the Flyway (it's dependency is found on pom.xml file), it's a tool for version control to make migration of the tables created, or any change to be made on a relational database, to the MySql or other of your preference. That said, create the following diretory on <code>src/main/resources</code>: <code>db/migration</code><br/>. Then, create each version file, following the default <code>V00n__description</code>, where n is the number of version. <a href="https://flywaydb.org/documentation/migrations">[Details here]</a>.
@@ -39,7 +39,7 @@ It uses an in-memory database (H2) to store the data. You can also do with a rel
 	Other form is the creation of the tables automaticaly that is already configured on <code>application.properties</code> file through the command <code>spring.jpa.hibernate.ddl-auto=create-drop</code>. Don't worry with the other form above, because the Hibernate will create the tables and columns based on the entity classes.
 </p>
 
-## Rotes
+## Endpoints
 - <code>localhost:8080/clientes</code>
 - <code>localhost:8080/ordens-servico</code>
 - <code>localhost:8080/ordens-servico/{id}/comentarios</code> (comments of a especific service order, passing a id referencing a service order)

@@ -72,10 +72,12 @@ public class ComentarioController {
 			@Valid @RequestBody ComentarioInputRepresentationModel comentarioInput, 
 			@PathVariable Long comentarioId) {
 		
-		Comentario comentario = gestaoOrdemServicoService.atualizarComentario(ordemServicoId, comentarioInput.getDescricao(), comentarioId);
+		Comentario comentario = gestaoOrdemServicoService
+				.atualizarComentario(ordemServicoId, comentarioInput.getDescricao(), comentarioId);
 		
 		return toModel( comentario );
 	}
+	
 	
 	@DeleteMapping("/{comentarioId}")
 	public ResponseEntity<Void> deletar(@PathVariable Long ordemServicoId, 
@@ -86,6 +88,8 @@ public class ComentarioController {
 		return ResponseEntity.noContent().build();
 	}
 	
+	
+	/* ------------- MÉTODOS DE MAPEAMENTO DE MODELOS --------------- */
 	
 	public ComentarioRepresentationModel toModel(Comentario comentario) {
 		return modelMapper.map(comentario, ComentarioRepresentationModel.class);

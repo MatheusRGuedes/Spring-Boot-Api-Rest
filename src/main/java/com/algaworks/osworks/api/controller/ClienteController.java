@@ -39,7 +39,7 @@ import com.algaworks.osworks.domain.service.CadastroClienteService;
 	Autowired			--> Cria uma instância de ClienteRepository na variável. Substitui todas as ligações que estavam com jpa usadas com o manager.
 	PathVariable		--> Vincula o path variable no parâmetro
 	RequestBody			--> Transforma o json da requisição em um Cliente
-	@Valid				--> Ativa a validação do Jakarta Bean Validations
+	@Valid				--> Ativa a validação do Jakarta Bean Validations, validando apenas o parâmetro com a anotação.
 */
 
 @RestController
@@ -102,8 +102,8 @@ public class ClienteController {
 	
 	
 	@PutMapping("/{clienteId}")
-	public ResponseEntity<ClienteRepresentationModel> atualizar(@Valid @PathVariable Long clienteId, 
-			@RequestBody ClienteInputRepresentationModel cliente) {
+	public ResponseEntity<ClienteRepresentationModel> atualizar(@Valid @RequestBody ClienteInputRepresentationModel cliente,
+			@PathVariable Long clienteId) {
 		
 		if (!clienteRepository.existsById(clienteId)) {
 			return ResponseEntity.notFound().build();
